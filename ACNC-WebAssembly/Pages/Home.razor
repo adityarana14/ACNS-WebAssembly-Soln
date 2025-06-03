@@ -6,7 +6,7 @@
 <!-- Top Banner with Background Image -->
 <div class="cover-banner text-white text-center d-flex flex-column justify-content-center align-items-center">
     <div class="container">
-        <h1>The ACM Symposium on Access Control Models and Systems (ACMS)</h1>
+        <h1>International Conference on Applied Cryptography and Network Security (ACNS)</h1>
         <h3>July 8 - 10, 2025. New York, USA</h3>
     </div>
 </div>
@@ -37,23 +37,35 @@
     </div>
 </div>
 
+<hr class="my-4" />
+
 <!-- About ACMS -->
 <div class="block dark">
     <div class="container mt-5 mb-5 text-center">
-        <h2 class="mb-3">About ACMS</h2>
+        <h2 class="mb-3">About ACNS</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
                 <p>
-                    Access control has long been one of the most widely adopted and foundational security technologies.
-                    However, in today’s deeply interconnected, networked world, we need new trust models,
-                    enforcement techniques, and supporting mechanisms. The ACM Symposium on Access Control Models and
-                    Systems (ACMS) provides a platform for researchers to explore innovative, efficient, and effective
-                    security mechanisms designed for distributed computing environments.
+                    The International Conference on Applied Cryptography and Network Security (ACNS) is a leading venue for cutting-edge research in applied cryptography and network security. Since its inception, ACNS has brought together academic researchers, industry professionals, and government practitioners to share innovations, practical insights, and breakthroughs in securing digital communications and systems.
                 </p>
+                <p>
+                    ACNS welcomes original contributions on all technical aspects of applied cryptography, network and system security. Topics of interest include, but are not limited to:
+                </p>
+                <ul class="text-start">
+                    <li>Applied cryptography</li>
+                    <li>Secure protocols and network security</li>
+                    <li>Privacy-enhancing technologies</li>
+                    <li>Cryptographic implementations and deployment</li>
+                    <li>Blockchain and distributed ledger security</li>
+                    <li>Authentication and access control</li>
+                    <li>Intrusion detection and malware analysis</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
+
+<hr class="my-4" />
 
 <!-- Footer -->
 <footer>
@@ -62,10 +74,8 @@
             <div class="col-12">
                 <p class="text-center">
                     Copyright © 2025-2035 ACM ACMS. All rights reserved.<br />
-                    Website Maintained by Aditya Rana.
+                    Website Maintained by <a href = "https://adityaranaportfolio.azurewebsites.net/">Aditya Rana</a>
                 </p>
-                <a href="https://www.acm.org/privacy-policy" target="_blank">Privacy Policy</a> •
-                <a href="https://www.acm.org/cookie-declaration" target="_blank">Cookie Policy</a>
             </div>
         </div>
     </div>
@@ -84,7 +94,7 @@
     {
         try
         {
-            newsItems = await Http.GetFromJsonAsync<NewsItem[]>("sample-data/newsMain.json");
+            newsItems = await Http.GetFromJsonAsync<NewsItem[]>("https://localhost:7116/api/news");
         }
         catch
         {
