@@ -1,0 +1,18 @@
+{
+  "generalChairs": [
+    {
+      "name": "Scott D. Stoller",
+      "affiliation": "Stony Brook University, USA",
+      "email": "stoller@cs.stonybrook.edu"
+    },
+    {
+      "name": "Omar Chowdhury",
+      "affiliation": "Stony Brook University, USA",
+      "email": "omar@cs.stonybrook.edu"
+    }
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/acm-sacmat/",
+    "twitter": "https://twitter.com/ACM_SACMAT"
+  }
+}

@@ -1,0 +1,157 @@
+﻿<div class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white vh-100">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
+        <span class="fs-4"><i class="bi bi-shield-lock me-2"></i>ACNS'25</span>
+    </a>
+    <hr />
+
+    <ul class="nav flex-column mb-auto" id="sidebarAccordion">
+
+        <!-- Call For -->
+        <li>
+            <a class="nav-link text-white dropdown-toggle"
+               data-bs-toggle="collapse"
+               data-bs-target="#callForMenu"
+               role="button"
+               aria-expanded="false"
+               aria-controls="callForMenu">
+                <i class="bi bi-megaphone me-2 text-white"></i> Call For
+            </a>
+            <div class="collapse" id="callForMenu" data-bs-parent="#sidebarAccordion">
+                <ul class="list-unstyled fw-normal pb-1 small ps-4">
+                    <li>
+                        <NavLink class="nav-link text-white" href="CallForPapers" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-file-earmark-text me-2"></i>Call for Papers
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="CallForPapers#imp-dates" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-calendar-event me-2"></i>Important Dates
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Attend -->
+        <li>
+            <a class="nav-link text-white dropdown-toggle"
+               data-bs-toggle="collapse"
+               data-bs-target="#attendMenu"
+               role="button"
+               aria-expanded="false"
+               aria-controls="attendMenu">
+                <i class="bi bi-person-check me-2 text-white"></i> Attend
+            </a>
+            <div class="collapse" id="attendMenu" data-bs-parent="#sidebarAccordion">
+                <ul class="list-unstyled fw-normal pb-1 small ps-4">
+                    <li>
+                        <NavLink class="nav-link text-white" href="Registration" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-pencil-square me-2"></i>Registration
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="Venue" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-geo-alt me-2"></i>Venue
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="Registration#visa" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-pass me-2"></i>Visa Information
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Program -->
+        <li>
+            <a class="nav-link text-white dropdown-toggle"
+               data-bs-toggle="collapse"
+               data-bs-target="#programMenu"
+               role="button"
+               aria-expanded="false"
+               aria-controls="programMenu">
+                <i class="bi bi-journal-code me-2 text-white"></i> Program
+            </a>
+            <div class="collapse" id="programMenu" data-bs-parent="#sidebarAccordion">
+                <ul class="list-unstyled fw-normal pb-1 small ps-4">
+                    <li>
+                        <NavLink class="nav-link text-white" href="AcceptedPapers" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-check2-square me-2"></i>Accepted Papers
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="Program" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-diagram-3 me-2"></i>Program
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="#" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-check2-square me-2"></i>Proceedings (TBA)
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Organization -->
+        <li>
+            <a class="nav-link text-white dropdown-toggle"
+               data-bs-toggle="collapse"
+               data-bs-target="#orgMenu"
+               role="button"
+               aria-expanded="false"
+               aria-controls="orgMenu">
+                <i class="bi bi-people me-2"></i> Organization
+            </a>
+            <div class="collapse" id="orgMenu" data-bs-parent="#sidebarAccordion">
+                <ul class="list-unstyled fw-normal pb-1 small ps-4">
+                    <li>
+                        <NavLink class="nav-link text-white" href="Officers" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-person-badge me-2"></i>Officers
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="ProgramCommittee" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-clipboard-data me-2"></i>Program Committee
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- History -->
+        <li>
+            <a class="nav-link text-white dropdown-toggle"
+               data-bs-toggle="collapse"
+               data-bs-target="#historyMenu"
+               role="button"
+               aria-expanded="false"
+               aria-controls="historyMenu">
+                <i class="bi bi-clock-history me-2"></i> History
+            </a>
+            <div class="collapse" id="historyMenu" data-bs-parent="#sidebarAccordion">
+                <ul class="list-unstyled fw-normal pb-1 small ps-4">
+                    <li><a class="nav-link text-white" href="https://www.sacmat.org/2023" target="_blank"><i class="bi bi-calendar-range me-2"></i>SACMAT 2023</a></li>
+                    <li>
+                        <NavLink class="nav-link text-white" href="History" Match="NavLinkMatch.Prefix">
+                            <i class="bi bi-journal-bookmark me-2"></i>Past Events
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Contact -->
+        <li>
+            <a class="nav-link text-white"
+               href="#offcanvasRight"
+               data-bs-toggle="offcanvas"
+               data-bs-target="#offcanvasRight"
+               aria-controls="offcanvasRight">
+                <i class="bi bi-envelope-at me-2"></i> Contact
+            </a>
+        </li>
+
+    </ul>
+</div>

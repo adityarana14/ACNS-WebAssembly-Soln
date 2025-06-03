@@ -1,0 +1,96 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>ACMS</PageTitle>
+
+<!-- Top Banner with Background Image -->
+<div class="cover-banner text-white text-center d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <h1>The ACM Symposium on Access Control Models and Systems (ACMS)</h1>
+        <h3>July 8 - 10, 2025. New York, USA</h3>
+    </div>
+</div>
+
+<!-- Recent News -->
+<div class="block">
+    <div class="container mt-5">
+        <h2 class="mb-3 text-center">Recent News</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                @if (newsItems == null)
+                {
+                <p><em>Loading news...</em></p>
+                }
+                else
+                {
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in newsItems)
+                    {
+                    <li class="list-group-item">
+                        <strong>@item.Date:</strong> @((MarkupString)item.Content)
+                    </li>
+                    }
+                </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About ACMS -->
+<div class="block dark">
+    <div class="container mt-5 mb-5 text-center">
+        <h2 class="mb-3">About ACMS</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <p>
+                    Access control has long been one of the most widely adopted and foundational security technologies.
+                    However, in today’s deeply interconnected, networked world, we need new trust models,
+                    enforcement techniques, and supporting mechanisms. The ACM Symposium on Access Control Models and
+                    Systems (ACMS) provides a platform for researchers to explore innovative, efficient, and effective
+                    security mechanisms designed for distributed computing environments.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center">
+                    Copyright © 2025-2035 ACM ACMS. All rights reserved.<br />
+                    Website Maintained by Aditya Rana.
+                </p>
+                <a href="https://www.acm.org/privacy-policy" target="_blank">Privacy Policy</a> •
+                <a href="https://www.acm.org/cookie-declaration" target="_blank">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@code {
+    public class NewsItem
+    {
+    public string Date { get; set; } = string.Empty;
+    public string Content { get; set; } = string.Empty;
+    }
+
+    private NewsItem[]? newsItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            newsItems = await Http.GetFromJsonAsync<NewsItem[]>("sample-data/newsMain.json");
+        }
+        catch
+        {
+            Console.WriteLine("Unable to locate the file");
+        }
+    }
+
+
+}
