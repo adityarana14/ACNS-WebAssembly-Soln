@@ -1,0 +1,95 @@
+@page "/Visa"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading visa and registration information...</em></p>
+}
+else
+{
+<h4>Registration Fees</h4>
+<p>@Data.RegistrationNote</p>
+
+<table class="table table-bordered mt-3">
+    <thead class="table-light">
+    <tr>
+        <th>Category</th>
+        <th>Early Registration</th>
+        <th>Regular Registration</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var fee in Data.Fees)
+    {
+    <tr>
+        <td>@fee.Category</td>
+        <td>@fee.Early</td>
+        <td>@fee.Regular</td>
+    </tr>
+    }
+    </tbody>
+</table>
+
+<h4>Important Notes</h4>
+<ul>
+    @foreach (var note in Data.Notes)
+    {
+    <li>@note</li>
+    }
+</ul>
+
+<h4>Visa Support Letter Requests</h4>
+<p>@Data.VisaSupport.AcmSupportText</p>
+<p>
+    Apply here: <a href="@Data.VisaSupport.AcmLink" target="_blank">@Data.VisaSupport.AcmLink</a>
+</p>
+<p>@Data.VisaSupport.ConferenceSupportText</p>
+
+<h5>Visa Chair Contact</h5>
+<p>
+    For visa-related questions, please contact the Visa Chair:
+    <a href="@Data.VisaChair.Url" target="_blank">@Data.VisaChair.Name</a>
+</p>
+}
+
+@code {
+public class VisaInfoModel
+{
+public string Title { get; set; }
+public string RegistrationNote { get; set; }
+public List<RegistrationFee> Fees { get; set; }
+public List<string> Notes { get; set; }
+public VisaSupport VisaSupport { get; set; }
+public VisaChair VisaChair { get; set; }
+}
+
+public class RegistrationFee
+{
+public string Category { get; set; }
+public string Early { get; set; }
+public string Regular { get; set; }
+}
+
+public class VisaSupport
+{
+public string AcmSupportText { get; set; }
+public string AcmLink { get; set; }
+public string ConferenceSupportText { get; set; }
+}
+
+public class VisaChair
+{
+public string Name { get; set; }
+public string Url { get; set; }
+}
+
+private VisaInfoModel? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<VisaInfoModel>("sample-data/visa.json");
+}
+}

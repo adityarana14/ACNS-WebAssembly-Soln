@@ -1,4 +1,119 @@
 @page "/CallForPapers"
+@inject HttpClient Http
+
+<h2 class="text-center">Call for Papers</h2>
+
+@if (Data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>The 23rd International Conference on Applied Cryptography and Network Security (ACNS @Data.Year) will be held in @Data.Location, on @Data.Dates. ACNS is an annual conference focusing on current developments that advance the areas of applied cryptography, cyber security (including network and computer security), and privacy. The goal is to present both academic research works and advances on industrial and technical frontiers.</p>
+
+    <p>Submissions may focus on the modeling, design, analysis, development, deployment, integration, maintenance performance, and usability of algorithms, protocols, standards, implementations, devices, as well as systems, standing in relation with applied cryptography, cyber security and privacy and advancing or bringing new insights to the state of the art.</p>
+
+    <h4 class="text-center">Areas of Interest (partial list)</h4>
+    <ul>
+        <li>Applied cryptography</li>
+        <li>Artificial intelligence for security</li>
+        <li>Authentication and biometric security and privacy</li>
+        <li>Blockchain security and privacy</li>
+        <li>Cloud security and privacy</li>
+        <li>Post-quantum cryptography</li>
+        <li>Usable security and privacy</li>
+        <li>And many more...</li>
+    </ul>
+
+    <p>Besides the main conference, ACNS also seeks workshop proposals. Each satellite workshop will provide a forum to address a specific topic at the forefront of cybersecurity research. Papers accepted at the workshops will have post-proceedings published by Springer in the LNCS series as well.</p>
+
+    <p><strong>Best Student Paper Award:</strong> @Data.StudentPrize.Amount sponsored by @Data.StudentPrize.Sponsor</p>
+    <p><strong>Best Workshop Paper Award:</strong> @Data.WorkshopPrize.Amount sponsored by @Data.WorkshopPrize.Sponsor</p>
+
+    <h4 class="text-center">Important Dates</h4>
+    <p>All deadlines are on the given day, 23:59 AoE (Anywhere on Earth). The submission system opens two weeks before the deadline.</p>
+
+    <strong>First Submission Round</strong>
+    <ul>
+        @foreach (var date in Data.ImportantDates.FirstRound)
+        {
+            <li>@date</li>
+        }
+    </ul>
+
+    <strong>Second Submission Round</strong>
+    <ul>
+        @foreach (var date in Data.ImportantDates.SecondRound)
+        {
+            <li>@date</li>
+        }
+    </ul>
+
+    <h4 class="text-center">PAPER SUBMISSION</h4>
+    <a class="btn btn-primary mb-3" href="@Data.SubmissionLink" target="_blank">Submit via HotCRP</a>
+
+    <h4 class="text-center">Instructions for Authors</h4>
+    <p>Submissions must be done via the HotCRP website. The link will be announced shortly before the paper deadline.</p>
+    <p>ACNS @Data.Year will be an <strong>in-person</strong> conference. Remote presentations or videos will not be accepted.</p>
+    <p>Submitted papers must not substantially overlap with other submissions. Information may be shared with program chairs of other conferences.</p>
+    <p>Student authors are encouraged to submit and present. To be eligible for the student award, one full-time student must present the paper.</p>
+
+    <h4 class="text-center">Systematization of Knowledge (SoK)</h4>
+    <p>ACNS @Data.Year welcomes SoK papers that provide structured overviews and insights into complex research topics. Authors should prefix the title with “SoK:”.</p>
+
+    <h4 class="text-center">Submission Guidelines</h4>
+    <p>Papers must be anonymous and submitted in PDF using the unmodified LNCS LaTeX template, up to 20 pages excluding references. Camera-ready versions can be up to 30 pages.</p>
+    <p>Ethical concerns must be addressed (e.g., IRB approvals for studies). Submissions raising serious concerns may be rejected outright.</p>
+    <p>Rejected papers from the September deadline may not be resubmitted to the January deadline.</p>
+    <p>Accepted papers will appear in the Springer LNCS series proceedings.</p>
+
+    <h4 class="text-center">Conflicts of Interest</h4>
+    <p>Authors must declare any potential conflicts of interest with PC members, including institutional ties, past collaborations, shared grants, or close relationships. Undeclared COIs may result in paper reassignment or other actions.</p>
+
+    <h4 class="text-center">Ethical Considerations for Vulnerability Disclosure</h4>
+    <p>Research involving vulnerabilities must be disclosed responsibly. Authors are encouraged to notify affected vendors with a disclosure window of 45–90 days. Submissions must document the steps taken to prevent harm to users.</p>
+
+    <h4 class="text-center">Diversity and Inclusion</h4>
+    <p>ACNS is committed to diversity and inclusion. Concerns related to bias or harassment may be reported confidentially to the organizers. Authors should avoid exclusionary or marginalizing language in submissions.</p>
+}
 
 
-<p> This is Call For papers.</p>
+@code {
+    public class CallForPapersModel
+    {
+        public int Year { get; set; }
+        public string? Location { get; set; }
+        public string? Dates { get; set; }
+        public Prize? StudentPrize { get; set; }
+        public Prize? WorkshopPrize { get; set; }
+        public ImportantDates? ImportantDates { get; set; }
+        public string? SubmissionLink { get; set; }
+    }
+
+    public class Prize
+    {
+        public string? Amount { get; set; }
+        public string? Sponsor { get; set; }
+    }
+
+    public class ImportantDates
+    {
+        public List<string>? FirstRound { get; set; }
+        public List<string>? SecondRound { get; set; }
+    }
+    
+    private CallForPapersModel? Data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Data = await Http.GetFromJsonAsync<CallForPapersModel>("sample-data/callforpapers.json");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"This is the Exception {ex}");
+        }
+        
+    }
+}

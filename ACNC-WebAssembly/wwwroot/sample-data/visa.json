@@ -1,0 +1,35 @@
+{
+  "title": "Visa & Registration Information",
+  "registrationNote": "The registration website will be set up soon. We apologize for the delay.",
+  "fees": [
+    {
+      "category": "ACM/SIGSAC Members",
+      "early": "USD 540",
+      "regular": "USD 590"
+    },
+    {
+      "category": "ACM/SIGSAC Non-Members",
+      "early": "USD 640",
+      "regular": "USD 690"
+    },
+    {
+      "category": "Students",
+      "early": "USD 440",
+      "regular": "USD 490"
+    }
+  ],
+  "notes": [
+    "The early registration deadline is June 13. The regular registration deadline is July 2. For registration after that, please contact the General Chairs.",
+    "One full (non-student) registration is required for each accepted paper. When registering for a paper, please make sure you enter the paper ID on the attendee information page.",
+    "Cancellation is allowed through July 2, 2025. Your registration fee less a $100 cancellation fee will be refunded. No cancellation is allowed after that."
+  ],
+  "visaSupport": {
+    "acmSupportText": "ACM is able to provide visa support letters to attendees as well as authors with accepted papers, posters, or members of the conference committee.",
+    "acmLink": "https://supportletters.acm.org/",
+    "conferenceSupportText": "For a visa support letter from the conference organizers, please send email to the General Chairs."
+  },
+  "visaChair": {
+    "name": "Dr. Alex Johnson",
+    "url": "https://acns2025.org/committee#visa"
+  }
+}

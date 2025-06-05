@@ -1,0 +1,56 @@
+@page "/InvitedSpeakers"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">Invited Speakers — ACNS @Data?.Year</h2>
+
+@if (Data == null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+@foreach (var speaker in Data.Speakers)
+{
+<div class="row mb-5">
+    <div class="col-md-3 text-center">
+        @if (!string.IsNullOrWhiteSpace(speaker.ImageUrl))
+        {
+        <img src="@speaker.ImageUrl" alt="@speaker.Name"
+             class="img-fluid rounded" style="max-width: 200px; max-height: 200px;" />
+        }
+    </div>
+    <div class="col-md-9">
+        <h4>@speaker.Title</h4>
+        <h6 class="text-muted">by @speaker.Name</h6>
+        <p>@(speaker.Abstract.Replace("\n", "<br />"))</p>
+        <strong>Speaker Bio:</strong>
+        <p>@speaker.Bio</p>
+    </div>
+</div>
+}
+}
+
+@code {
+private InvitedSpeakersModel? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<InvitedSpeakersModel>("sample-data/invitedspeakers.json");
+}
+
+public class InvitedSpeakersModel
+{
+public int Year { get; set; }
+public List<Speaker> Speakers { get; set; }
+}
+
+public class Speaker
+{
+public string Name { get; set; }
+public string Title { get; set; }
+public string Abstract { get; set; }
+public string Bio { get; set; }
+public string ImageUrl { get; set; }
+}
+}

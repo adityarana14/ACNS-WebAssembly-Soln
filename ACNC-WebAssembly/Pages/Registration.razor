@@ -1,0 +1,37 @@
+@page "/Registration"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading registration details...</em></p>
+}
+else
+{
+<p>@Data.Description</p>
+
+<div class="text-center mt-4">
+    <a href="@Data.RegistrationLink" target="_blank" class="btn btn-success">
+        Go to Registration Portal
+    </a>
+</div>
+}
+
+@code {
+
+public class RegistrationModel
+{
+public string Title { get; set; }
+public string Description { get; set; }
+public string RegistrationLink { get; set; }
+}
+
+private RegistrationModel? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<RegistrationModel>("sample-data/registration.json");
+}
+}

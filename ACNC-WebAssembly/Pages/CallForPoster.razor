@@ -1,0 +1,74 @@
+@page "/CallForPoster"
+@inject HttpClient Http
+
+<h2 class="text-center">Call for Posters</h2>
+
+@if (Data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>ACNS @Data.Year will include a poster session to provide a forum for presenting and discussing work in progress, current and upcoming research challenges, new research directions, and approaches in the field of applied cryptography and cybersecurity.</p>
+
+    <p>In particular, we value submissions on interdisciplinary work among researchers and joint work between academia and industry. High-quality poster presentations are of great importance to ACNS. There will be an ACNS best poster award.</p>
+
+    <h4>Submission Guidelines</h4>
+
+    <p>Authors are invited to submit a short proposal that describes the main contributions of the poster. Proposals should contain a brief abstract, demonstrate the motivation for the work, and summarize contributions being presented. Preliminary results may also be included.</p>
+
+    <p>The proposal should clearly state the difference between the work that will be presented and any previous work or the work under submission on the same topic. The submitted proposals will be evaluated primarily on their potential to stimulate interesting discussions, facilitate the exchange of ideas, and promote collaborations.</p>
+
+    <p>Authors of accepted poster proposals will be provided instructions for preparing the posters. Tripods will be provided to display all accepted posters. Proposals must follow the LNCS proceedings-style with 5 pages maximum including title, abstract, content, and any references.</p>
+
+    <p>Proposals are not blinded, and must contain the authors’ names, affiliations, and contact information. All poster titles must begin with the keyword “POSTER:”. Submissions that are not formatted as described above risk rejection without review. All submissions must designate a single corresponding author. At least one presenter per accepted poster must register for the conference.</p>
+
+    <p>The accepted posters will be published in the post-proceedings published in the LNCS series by Springer.</p>
+
+    <h4>Important Dates</h4>
+    <ul>
+        <li><strong>Submission:</strong> @Data.ImportantDates.SubmissionMethod</li>
+        <li><strong>Submission Deadline:</strong> @Data.ImportantDates.SubmissionDeadline</li>
+        <li><strong>Author Notification:</strong> @Data.ImportantDates.NotificationDate</li>
+        <li><strong>Camera-ready Deadline:</strong> @Data.ImportantDates.CameraReady</li>
+    </ul>
+
+    <h4>Poster Chair</h4>
+    <p>
+        <strong>@Data.PosterChair.Name</strong><br />
+        @Data.PosterChair.Affiliation<br />
+        <a href="mailto:@Data.PosterChair.Email">@Data.PosterChair.Email</a>
+    </p>
+}
+
+@code {
+    
+    public class CallForPosterModel
+    {
+        public int Year { get; set; }
+        public PosterChair PosterChair { get; set; }
+        public ImportantDates ImportantDates { get; set; }
+    }
+
+    public class PosterChair
+    {
+        public string Name { get; set; }
+        public string Affiliation { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class ImportantDates
+    {
+        public string SubmissionMethod { get; set; }
+        public string SubmissionDeadline { get; set; }
+        public string NotificationDate { get; set; }
+        public string CameraReady { get; set; }
+    }
+    
+    private CallForPosterModel? Data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await Http.GetFromJsonAsync<CallForPosterModel>("sample-data/callforposter.json");
+    }
+}

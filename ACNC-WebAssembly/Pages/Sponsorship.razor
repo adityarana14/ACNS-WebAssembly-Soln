@@ -1,0 +1,56 @@
+@page "/Sponsorship"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading sponsorship details...</em></p>
+}
+else
+{
+<p>@Data.Description</p>
+<div class="mt-4">
+    @foreach (var pkg in Data.Packages)
+    {
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">@pkg.Name</h5>
+            <small class="text-white">@pkg.Price</small>
+        </div>
+        <div class="card-body">
+            <ul>
+                @foreach (var benefit in pkg.Benefits)
+                {
+                <li>@benefit</li>
+                }
+            </ul>
+        </div>
+    </div>
+    }
+</div>
+}
+
+@code {
+
+    public class SponsorshipPackage
+    {
+    public string Name { get; set; }
+    public string Price { get; set; }
+    public List<string> Benefits { get; set; }
+    }
+    
+    public class SponsorshipData
+    {
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public List<SponsorshipPackage> Packages { get; set; }
+    }
+    private SponsorshipData? Data;
+    
+    protected override async Task OnInitializedAsync()
+    {
+    Data = await Http.GetFromJsonAsync<SponsorshipData>("sample-data/sponsorship.json");
+    }
+}

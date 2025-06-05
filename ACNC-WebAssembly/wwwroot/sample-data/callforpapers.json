@@ -1,0 +1,26 @@
+{
+  "year": 2026,
+  "location": "Munich, Germany",
+  "dates": "23–26 June 2026",
+  "studentPrize": {
+    "amount": "1500 EUR",
+    "sponsor": "Springer"
+  },
+  "workshopPrize": {
+    "amount": "500 EUR",
+    "sponsor": "Springer"
+  },
+  "importantDates": {
+    "firstRound": [
+      "Submission: September 9, 2024, 23:59 AoE",
+      "Notification: November 11, 2024",
+      "Camera-ready: December 2, 2024"
+    ],
+    "secondRound": [
+      "Submission: January 13, 2026, 23:59 AoE",
+      "Notification: March 17, 2026",
+      "Camera-ready: April 7, 2026"
+    ]
+  },
+  "submissionLink": "https://acns25-cycle2.hotcrp.com/"
+}

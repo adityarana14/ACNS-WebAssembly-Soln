@@ -1,0 +1,24 @@
+{
+  "title": "Contact Us",
+  "description": "For questions about the ACNS 2025 conference, including registration, paper submissions, or sponsorship inquiries, please feel free to reach out.",
+  "contacts": [
+    {
+      "role": "General Chair",
+      "name": "Dr. Jane Doe",
+      "affiliation": "Stony Brook University",
+      "email": "jane.doe@stonybrook.edu"
+    },
+    {
+      "role": "Program Chair",
+      "name": "Dr. John Smith",
+      "affiliation": "University of California",
+      "email": "john.smith@university.edu"
+    },
+    {
+      "role": "Sponsorship Chair",
+      "name": "Dr. Alice Green",
+      "affiliation": "MIT",
+      "email": "alice.green@mit.edu"
+    }
+  ]
+}

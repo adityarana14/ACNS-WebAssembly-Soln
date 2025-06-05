@@ -1,0 +1,105 @@
+@page "/CallForWorkshop"
+@inject HttpClient Http
+
+
+<h2 class="text-center">Call for Workshops</h2>
+
+@if (Data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>Proposals are solicited for workshops to be held in conjunction with ACNS @Data.Year. Each ACNS workshop provides a forum to address a specific topic at the forefront of cryptography, privacy, and cybersecurity research. It can be either one full day or half day in length. All workshops must be held physically during the conference and presentations are expected to be delivered in person.</p>
+
+    <p>At least one of the authors of each accepted workshop paper and at least one workshop PC chair would be expected to register at an author rate for the main conference. Each accepted workshop will receive one complementary registration. All workshops are expected to have a competitive Call for Papers and organize their own selection process, i.e., no workshops consisting of invited talks only will be accepted.</p>
+
+    <p>Post-proceedings of all workshops will be published in Springer’s LNCS series. An ACNS workshop best paper award will be selected from the accepted papers of all workshops.</p>
+
+    <p>Submissions of workshop proposals must reach the Workshop Chair by <strong>@Data.ImportantDates.ProposalDue</strong>.</p>
+
+    <p>Information on past ACNS workshops is available at: 
+        <a href="@Data.PastWorkshopsUrl" target="_blank">@Data.PastWorkshopsUrl</a>
+    </p>
+
+    <h4>Workshop Proposal Submission Guidelines</h4>
+
+    <p>Each workshop proposal should include the following information:</p>
+    <ul>
+        <li>Workshop title and acronym</li>
+        <li>A draft “Call for Papers” articulating the scope and topics covered by the workshop</li>
+        <li>A brief summary and justification for the workshop, including short feedback from any previous editions on acceptance rates, number of participants, etc.</li>
+        <li>Proposed length (half or full day), format, and tentative agenda</li>
+        <li>Expected number of submissions and acceptance rate</li>
+        <li>Expected number of attendees</li>
+        <li>Names of 2 workshop program chairs (will appear in the joint proceedings) and, if available, tentative program committee</li>
+        <li>A one-paragraph biographical sketch for each program chair, describing relevant qualifications</li>
+    </ul>
+
+    <p>Workshop proposals should be submitted as a single PDF file online via EasyChair at:  
+        <a href="@Data.ProposalLink" target="_blank">@Data.ProposalLink</a>
+    </p>
+
+    <h4>Proposal Evaluation Criteria</h4>
+    <ul>
+        <li>The workshop is within the scope of cybersecurity and concerns an emerging and important technical topic of high interest in the community</li>
+        <li>Its novelty with respect to other forums</li>
+        <li>Its likely impact on the target community, including potential high participation</li>
+        <li>Research caliber of the PC committee and PC chairs</li>
+    </ul>
+
+    <p><strong>Important remark:</strong> If your workshop has been previously collocated with ACNS, there is no guarantee that it will be automatically selected for this year’s conference.</p>
+
+    <h4>Important Dates</h4>
+    <ul>
+        <li><strong>Workshop proposal submission due:</strong> @Data.ImportantDates.ProposalDue</li>
+        <li><strong>Decision notification:</strong> @Data.ImportantDates.DecisionNotification</li>
+        <li><strong>CFP and website due:</strong> @Data.ImportantDates.CfpDue</li>
+        <li><strong>Suggested paper submission deadline:</strong> @Data.ImportantDates.PaperSubmission</li>
+        <li><strong>Suggested paper notification:</strong> @Data.ImportantDates.Notification</li>
+        <li><strong>Camera-ready paper deadline:</strong> @Data.ImportantDates.CameraReady</li>
+        <li><strong>Workshop dates:</strong> @Data.ImportantDates.WorkshopDates</li>
+    </ul>
+
+    <h4>Workshop Chair</h4>
+    <p>
+        <strong>@Data.WorkshopChair.Name</strong><br />
+        @Data.WorkshopChair.Affiliation
+    </p>
+}
+
+@code {
+    
+    public class CallForWorkshopModel
+    {
+        public int Year { get; set; }
+        public string Location { get; set; }
+        public WorkshopChair WorkshopChair { get; set; }
+        public string ProposalLink { get; set; }
+        public string PastWorkshopsUrl { get; set; }
+        public ImportantDates ImportantDates { get; set; }
+    }
+
+    public class WorkshopChair
+    {
+        public string Name { get; set; }
+        public string Affiliation { get; set; }
+    }
+
+    public class ImportantDates
+    {
+        public string ProposalDue { get; set; }
+        public string DecisionNotification { get; set; }
+        public string CfpDue { get; set; }
+        public string PaperSubmission { get; set; }
+        public string Notification { get; set; }
+        public string CameraReady { get; set; }
+        public string WorkshopDates { get; set; }
+    }
+    private CallForWorkshopModel? Data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await Http.GetFromJsonAsync<CallForWorkshopModel>("sample-data/callforworkshop.json");
+    }
+}

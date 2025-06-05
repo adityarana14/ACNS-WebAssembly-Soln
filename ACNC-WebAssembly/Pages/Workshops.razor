@@ -1,0 +1,49 @@
+@page "/Workshops"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">Workshops at ACNS @Data?.Year</h2>
+
+@if (Data == null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+<p>The following workshops are planned to be held in conjunction with ACNS @Data.Year. Please refer to the workshop websites for more information.</p>
+@foreach (var workshop in Data.Workshops)
+{
+<div class="mb-4">
+    <h5>@workshop.Title</h5>
+    <ul>
+        @foreach (var organizer in workshop.Organizers)
+        {
+        <li>@organizer</li>
+        }
+    </ul>
+    <a href="@workshop.WebsiteUrl" target="_blank">Workshop Website</a>
+</div>
+}
+}
+
+@code {
+
+    public class WorkshopData
+    {
+    public int Year { get; set; }
+    public List<Workshop> Workshops { get; set; }
+    }
+    
+    public class Workshop
+    {
+    public string Title { get; set; }
+    public List<string> Organizers { get; set; }
+    public string WebsiteUrl { get; set; }
+    }
+    private WorkshopData? Data;
+    
+    protected override async Task OnInitializedAsync()
+    {
+    Data = await Http.GetFromJsonAsync<WorkshopData>("sample-data/workshops.json");
+    }
+}

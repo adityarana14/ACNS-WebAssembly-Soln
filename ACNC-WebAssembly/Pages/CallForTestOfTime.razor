@@ -1,0 +1,59 @@
+@page "/CallForTestOfTime"
+@inject HttpClient Http
+
+<h2 class="text-center">Call for Nominations: ACNS Test-of-Time Award @Data?.Year</h2>
+
+@if (Data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>ACNS (International Conference on Applied Cryptography and Network Security) is an annual conference launched in 2003, focusing on current developments that advance the areas of applied cryptography, cybersecurity (including network & computer security), and privacy. ACNS will give the inaugural <strong>Test-of-Time Award</strong> in @Data.Year to recognize papers that have had a lasting impact on the field.</p>
+
+    <h4>Nomination</h4>
+    <p>Any person can nominate a paper published at ACNS for the award. Self-nomination is also allowed.</p>
+    <p>To nominate a paper, send an email to <a href="mailto:@Data.NominationEmail">@Data.NominationEmail</a> containing the following:</p>
+    <ul>
+        <li>Paper title and year of publication</li>
+        <li>Paper authors</li>
+        <li>Reason for nomination (max 500 words) explaining the paper’s influence and impact on the field</li>
+    </ul>
+
+    <h4>Award Committee</h4>
+    <ul>
+        @foreach (var member in Data.AwardCommittee)
+        {
+            <li>@member</li>
+        }
+    </ul>
+
+    <h4>Deadline</h4>
+    <p><strong>Submission Deadline:</strong> @Data.SubmissionDeadline</p>
+
+    <h4>Eligibility</h4>
+    <p>To be eligible for the award given in @Data.Year, a paper must have been published between @Data.EligibilityYears. Papers authored or co-authored by award committee members are not eligible.</p>
+
+    <h4>Ceremony</h4>
+    <p>The Test-of-Time award will be presented at ACNS @Data.Year (<strong>@Data.Location</strong>, <strong>@Data.Dates</strong>), and the recipient will give a short talk reflecting on their work. The recipient’s registration fee will be waived.</p>
+}
+
+@code {
+    
+    public class CallForTestOfTimeModel
+    {
+        public int Year { get; set; }
+        public string Location { get; set; }
+        public string Dates { get; set; }
+        public string SubmissionDeadline { get; set; }
+        public string EligibilityYears { get; set; }
+        public string NominationEmail { get; set; }
+        public List<string> AwardCommittee { get; set; }
+    }
+    private CallForTestOfTimeModel? Data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await Http.GetFromJsonAsync<CallForTestOfTimeModel>("sample-data/callfortestoftime.json");
+    }
+}

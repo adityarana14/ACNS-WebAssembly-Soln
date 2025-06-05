@@ -1,0 +1,19 @@
+{
+  "year": 2025,
+  "location": "Munich, Germany",
+  "workshopChair": {
+    "name": "Mark Manulis",
+    "affiliation": "University of the Bundeswehr Munich, Germany"
+  },
+  "proposalLink": "https://easychair.org/conferences/?conf=wsacns25",
+  "pastWorkshopsUrl": "http://jianying.space/acns/acns-workshops.html",
+  "importantDates": {
+    "proposalDue": "October 21, 2024, AoE",
+    "decisionNotification": "October 31, 2024",
+    "cfpDue": "November 30, 2024, AoE",
+    "paperSubmission": "March 23, 2025, AoE",
+    "notification": "April 23, 2025",
+    "cameraReady": "May 12, 2025 (hard deadline)",
+    "workshopDates": "June 23–26, 2025"
+  }
+}

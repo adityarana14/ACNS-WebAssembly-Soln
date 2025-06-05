@@ -1,0 +1,49 @@
+@page "/Venue"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading venue details...</em></p>
+}
+else
+{
+<div class="text-center">
+    <h4>@Data.LocationName</h4>
+    <p><strong>Address:</strong> @Data.Address</p>
+</div>
+
+<p>@Data.Description</p>
+
+<div class="mt-4 text-center">
+    <iframe
+            src="@Data.GmapUrl"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+}
+
+@code {
+
+public class VenueModel
+{
+public string Title { get; set; }
+public string LocationName { get; set; }
+public string Address { get; set; }
+public string Description { get; set; }
+public string GmapUrl { get; set; }
+}
+private VenueModel? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<VenueModel>("sample-data/venue.json");
+}
+}

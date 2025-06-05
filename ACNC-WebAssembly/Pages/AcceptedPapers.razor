@@ -1,0 +1,46 @@
+@page "/AcceptedPapers"
+@inject HttpClient Http
+
+<h2 class="text-center">Accepted Papers in the @Data?.Round round</h2>
+
+@if (Data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var paper in Data.Papers)
+    {
+        <div class="mb-4">
+            <h5>@paper.Title</h5>
+            <ul>
+                @foreach (var author in paper.Authors)
+                {
+                    <li>@author</li>
+                }
+            </ul>
+        </div>
+    }
+}
+
+@code {
+    
+    public class AcceptedPapersModel
+    {
+        public string Round { get; set; }
+        public List<Paper> Papers { get; set; }
+    }
+
+    public class Paper
+    {
+        public string Title { get; set; }
+        public List<string> Authors { get; set; }
+    }
+    
+    private AcceptedPapersModel? Data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await Http.GetFromJsonAsync<AcceptedPapersModel>("sample-data/acceptedpapers.json");
+    }
+}

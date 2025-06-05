@@ -1,0 +1,40 @@
+{
+  "title": "ACNS 2025 – Sponsorship Packages",
+  "description": "ACNS welcomes sponsors to support this event. Please contact the general chairs in case you are interested to support ACNS 2025. Depending on the level of support, the benefits can include:",
+  "packages": [
+    {
+      "name": "Platinum Sponsorship Package",
+      "price": "5000 € + VAT",
+      "benefits": [
+        "Your company logo will be featured as a sponsor on the ACNS 2025 website.",
+        "Your company will be acknowledged in the conference proceedings.",
+        "You will be offered an opportunity to include materials or gifts in registration packages.",
+        "You will be acknowledged in the General Chair’s opening remarks.",
+        "You will be offered space for an exhibit booth.",
+        "You will be offered two free admissions to the conference.",
+        "You will have the opportunity for additional exclusive promotion opportunities (fixed individually with each platinum sponsor)."
+      ]
+    },
+    {
+      "name": "Golden Sponsor",
+      "price": "2500 € + VAT",
+      "benefits": [
+        "Your company logo will be featured as a sponsor on the ACNS 2025 website.",
+        "Your company will be acknowledged in the conference proceedings.",
+        "You will be offered an opportunity to include materials or gifts in registration packages.",
+        "You will be acknowledged in the General Chair’s opening remarks.",
+        "You will be offered space for an exhibit booth.",
+        "You will be offered one free admission to the conference."
+      ]
+    },
+    {
+      "name": "Silver Sponsor",
+      "price": "1500 € + VAT",
+      "benefits": [
+        "Your company logo will be featured as a sponsor on the ACNS 2025 website.",
+        "Your company will be acknowledged in the conference proceedings.",
+        "You will be offered an opportunity to include materials or gifts in registration packages."
+      ]
+    }
+  ]
+}

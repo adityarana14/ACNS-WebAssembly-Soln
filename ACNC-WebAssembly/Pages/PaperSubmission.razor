@@ -1,0 +1,36 @@
+@page "/PaperSubmission"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+<p>@Data.Description</p>
+
+<div class="text-center mt-4">
+    <a href="@Data.SubmissionLink" target="_blank" class="btn btn-primary">
+        Submit via HotCRP
+    </a>
+</div>
+}
+
+@code {
+
+public class PaperSubmissionModel
+{
+public string Title { get; set; }
+public string Description { get; set; }
+public string SubmissionLink { get; set; }
+}
+private PaperSubmissionModel? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<PaperSubmissionModel>("sample-data/paper-submission.json");
+}
+}

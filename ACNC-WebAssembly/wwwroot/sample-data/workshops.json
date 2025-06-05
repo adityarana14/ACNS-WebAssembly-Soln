@@ -1,0 +1,53 @@
+{
+  "year": 2026,
+  "workshops": [
+    {
+      "title": "6th ACNS Workshop on Artificial Intelligence in Hardware Security (AIHWS)",
+      "organizers": [
+        "Lejla Batina (Radboud University)",
+        "Shivam Bhasin (Nanyang Technological University)"
+      ],
+      "websiteUrl": "https://example.com/aihws"
+    },
+    {
+      "title": "7th ACNS Workshop on Artificial Intelligence and Industrial Internet-of-Things Security (AIoTS)",
+      "organizers": [
+        "Dieter Gollmann (TU Hamburg)",
+        "Mujeeb Ahmed (Newcastle University)"
+      ],
+      "websiteUrl": "https://example.com/aiots"
+    },
+    {
+      "title": "5th ACNS Workshop on Critical Infrastructure and Manufacturing System Security (CIMSS)",
+      "organizers": [
+        "Zengpeng Li (Shandong University)",
+        "Ahmed Amro (Norwegian University of Science and Technology)"
+      ],
+      "websiteUrl": "https://example.com/cimss"
+    },
+    {
+      "title": "International Workshop on Cryptography, Robustness, and Provably Secure Schemes for Female Young Researchers (CrossFyre)",
+      "organizers": [
+        "Hülya Evkan (TU Berlin)",
+        "Elham Amini (Fraunhofer SIT)"
+      ],
+      "websiteUrl": "https://example.com/crossfyre"
+    },
+    {
+      "title": "International Workshop on Foundations and Applications of Privacy-Enhancing Cryptography (PrivCrypt)",
+      "organizers": [
+        "Lucjan Hanzlik (CISPA)",
+        "Daniel Slamanig (Universität der Bundeswehr München)"
+      ],
+      "websiteUrl": "https://example.com/privcrypt"
+    },
+    {
+      "title": "Workshop on Quantum-Safe Hybrid Cryptography (QSHC)",
+      "organizers": [
+        "Ludovic Perret (EPITA France)",
+        "Christoph Striecks (Austrian Institute of Technology)"
+      ],
+      "websiteUrl": "https://example.com/qshc"
+    }
+  ]
+}

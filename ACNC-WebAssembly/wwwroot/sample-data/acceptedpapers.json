@@ -1,0 +1,51 @@
+{
+  "round": "first",
+  "papers": [
+    {
+      "title": "Not So Secure TSC",
+      "authors": [
+        "Jonas Juffinger (Graz University of Technology)",
+        "Sudheendra Raghav Neela (Graz University of Technology)",
+        "Daniel Gruss (Graz University of Technology)"
+      ]
+    },
+    {
+      "title": "Homomorphic WiSARDs: Efficient Weightless Neural Network training over encrypted data",
+      "authors": [
+        "Leonardo Neumann (UNICAMP)",
+        "Antonio Guimarães (IMDEA Software Institute)",
+        "Diego F. Aranha (Aarhus University)",
+        "Edson Borin (UNICAMP)"
+      ]
+    },
+    {
+      "title": "CANTXSec: A Deterministic Intrusion Detection and Prevention System for CAN Bus Monitoring ECU Activations",
+      "authors": [
+        "Denis Donadel (University of Padua)",
+        "Kavya Balasubramanian (University of Washington)",
+        "Bhaskar Ramasubramanian (Western Washington University)",
+        "Mauro Conti (University of Padua)",
+        "Radha Poovendran (University of Washington)"
+      ]
+    },
+    {
+      "title": "Privately Compute the Item with Maximal Weight Sum in Set Intersection",
+      "authors": [
+        "Hongyuan Cai (Tsinghua University)",
+        "Xiaodong Wang (Tsinghua University)",
+        "Zijie Lu (Beijing Institute of Mathematical Sciences and Applications)",
+        "Bei Liang (Beijing Institute of Mathematical Sciences and Applications)"
+      ]
+    },
+    {
+      "title": "Oblivious suffix sorting: A multi-party computation scheme for secure and efficient suffix sorting",
+      "authors": [
+        "Kota Isayama (SMBC Nikko Securities Inc.)",
+        "Koki Jimbo (Tokyo University of Science)",
+        "Naohiro Okamoto (The University of Tokyo)",
+        "Kunihiko Sadakane (The University of Tokyo)",
+        "Kazunari Tozawa (The University of Tokyo)"
+      ]
+    }
+  ]
+}

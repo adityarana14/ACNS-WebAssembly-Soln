@@ -1,0 +1,49 @@
+@page "/Contact"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2 class="text-center">@Data?.Title</h2>
+
+@if (Data == null)
+{
+<p><em>Loading contact information...</em></p>
+}
+else
+{
+<p>@Data.Description</p>
+<div class="mt-4">
+    @foreach (var contact in Data.Contacts)
+    {
+    <div class="mb-4">
+        <h5>@contact.Role</h5>
+        <p><strong>@contact.Name</strong><br />
+            @contact.Affiliation<br />
+            <a href="mailto:@contact.Email">@contact.Email</a></p>
+    </div>
+    }
+</div>
+}
+
+@code {
+
+public class ContactPage
+{
+public string Title { get; set; }
+public string Description { get; set; }
+public List<ContactInfo> Contacts { get; set; }
+}
+
+public class ContactInfo
+{
+public string Role { get; set; }
+public string Name { get; set; }
+public string Affiliation { get; set; }
+public string Email { get; set; }
+}
+private ContactPage? Data;
+
+protected override async Task OnInitializedAsync()
+{
+Data = await Http.GetFromJsonAsync<ContactPage>("sample-data/contact.json");
+}
+}
