@@ -36,7 +36,15 @@ private InvitedSpeakersModel? Data;
 
 protected override async Task OnInitializedAsync()
 {
-Data = await Http.GetFromJsonAsync<InvitedSpeakersModel>("sample-data/invitedspeakers.json");
+    try
+    {
+        Data = await Http.GetFromJsonAsync<InvitedSpeakersModel>("https://raw.githubusercontent.com/adityarana14/ACNS-WebAssembly-Soln/master/ACNC-WebAssembly/wwwroot/sample-data/invitedspeakers.json");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex);
+    }
+
 }
 
 public class InvitedSpeakersModel

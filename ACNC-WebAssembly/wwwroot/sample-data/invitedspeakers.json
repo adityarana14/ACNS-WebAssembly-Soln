@@ -2,18 +2,11 @@
   "year": 2025,
   "speakers": [
     {
-      "name": "Shweta Shinde",
+      "name": "David Chaum",
       "title": "Confidential Computing in Three Acts",
       "abstract": "This talk will begin with the foundations of confidential computing...",
-      "bio": "Shweta Shinde is a tenure-track assistant professor at ETH Zurich...",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Shri_Narendra_Modi%2C_Prime_Minister_of_India_%283x4_cropped%29.jpg/250px-Shri_Narendra_Modi%2C_Prime_Minister_of_India_%283x4_cropped%29.jpg"
-    },
-    {
-      "name": "Bart Preneel",
-      "title": "Crypto Wars Revisited",
-      "abstract": "The Crypto Wars reflect the ongoing conflict between...",
-      "bio": "Prof. Bart Preneel is a full professor at KU Leuven...",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/250px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg"
+      "bio": "David Chaum is a tenure-track assistant professor at ETH Zurich...",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Web_Summit_2018_-_MoneyConf_-_Day_2%2C_November_7_HM1_6995_%2830826444907%29_%28cropped%29.jpg/500px-Web_Summit_2018_-_MoneyConf_-_Day_2%2C_November_7_HM1_6995_%2830826444907%29_%28cropped%29.jpg"
     }
   ]
 }
